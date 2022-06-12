@@ -39,7 +39,7 @@ const SettingsScreen: React.FC = ({ navigation }: any) => {
                         <Ionicons name='body' size={30} color={brandSecondary} />
                         <Text>My Body</Text>
                     </settings.Card>
-                    <settings.Card onPress={() => navigation.navigate('UserBody')}>
+                    <settings.Card onPress={() => navigation.navigate('Job')}>
                         <Ionicons name='square' size={30} color={brandSecondary} />
                         <Text>My Job</Text>
                     </settings.Card>
