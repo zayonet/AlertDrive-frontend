@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Dashboard from '../pages/Dashboard';
 import Settings from '../pages/Settings';
 import Profile from '../pages/Profile';
+import Body from '../pages/Body';
 
 import Theme from '../styles/index'
 import { Button, Image } from 'react-native';
@@ -41,6 +42,7 @@ const AppRoutes: React.FC = () => {
             })} />
             <AppStack.Screen options={{ headerTintColor: primary }} name='Settings' component={Settings} />
             <AppStack.Screen options={{ headerTintColor: primary }} name='Profile' component={Profile} />
+            <AppStack.Screen options={{ headerTintColor: primary }} name='Body' component={Body} />
         </AppStack.Navigator>
     )
 }
