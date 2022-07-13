@@ -43,15 +43,15 @@ const SettingsScreen: React.FC = ({ navigation }: any) => {
                         <Ionicons name='square' size={30} color={brandSecondary} />
                         <Text>My Job</Text>
                     </settings.Card>
-                    <settings.Card onPress={() => navigation.navigate('UserBody')}>
+                    <settings.Card onPress={() => navigation.navigate('Desease')}>
                         <Ionicons name='medkit' size={30} color={brandSecondary} />
                         <Text>Desease</Text>
                     </settings.Card>
-                    <settings.Card onPress={() => navigation.navigate('UserBody')}>
+                    <settings.Card onPress={() => navigation.navigate('History')}>
                         <Ionicons name='timer' size={30} color={brandSecondary} />
                         <Text>History</Text>
                     </settings.Card>
-                    <settings.Card onPress={() => navigation.navigate('UserBody')}>
+                    <settings.Card onPress={() => navigation.navigate('Activity')}>
                         <Ionicons name='apps' size={30} color={brandSecondary} />
                         <Text>Activity</Text>
                     </settings.Card>
@@ -59,7 +59,7 @@ const SettingsScreen: React.FC = ({ navigation }: any) => {
 
                 <settings.PageTitle>My Vehicle</settings.PageTitle>
                 <settings.CardContainer>
-                    <settings.Card onPress={() => navigation.navigate('Profile')}>
+                    <settings.Card onPress={() => navigation.navigate('Vehicle')}>
                         <Ionicons name='car' size={30} color={brandPrimary} />
                         <Text>My Car</Text>
                     </settings.Card >

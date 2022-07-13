@@ -33,6 +33,7 @@ const Dashboard: React.FC = ({ navigation }: any) => {
                 <View>
                     <dashboard.RightIcon onPress={() => navigation.navigate('Settings')}>
                         <Ionicons name='settings' size={30} color={brandPrimary} />
+                        <Text>Settings</Text>
                     </dashboard.RightIcon>
                 </View>
             ),

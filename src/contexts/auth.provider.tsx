@@ -19,6 +19,18 @@ interface IUser {
     id: number | string;
     name: string;
     email: string;
+    nif: number;
+    password: string;
+    birthday: string;
+    gender: string;
+    phone: number;
+    photo: string;
+    street: string;
+    house_number: string;
+    post_code: string;
+    city: string;
+    country_id: string;
+    aboutme: string;
     active: string;
     created_at: Date | string;
     updated_at: Date | string;
@@ -32,6 +44,7 @@ const AuthContext = createContext<AutContextData>({} as AutContextData); */
 
 const AuthProvider: React.FC = ({ children }) => {
     const [user, setUser] = useState<IUser | null>(null);
+    const [token, setToken] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -43,6 +56,7 @@ const AuthProvider: React.FC = ({ children }) => {
             if (storageUser && storageToken) {
                 api.defaults.headers.Authorization = `Bearer ${storageToken}`;
                 setUser(JSON.parse(storageUser));
+                setToken(api.defaults.headers.Authorization);
             }
             setLoading(false);
 
@@ -68,6 +82,7 @@ const AuthProvider: React.FC = ({ children }) => {
         //console.log(response.data);
         setUser(response.data.user)
         api.defaults.headers['Authorization'] = `Bearer ${response.data.token}`;
+        setToken(response.data.token);
 
         await AsyncStorage.setItem('@DriveAlert:user', JSON.stringify(response.data.user));
         await AsyncStorage.setItem('@DriveAlert:token', response.data.token);
@@ -76,7 +91,7 @@ const AuthProvider: React.FC = ({ children }) => {
         AsyncStorage.clear().then(() => { setUser(null); })
     }
     return (
-        <AuthContext.Provider value={{ signed: Boolean(user), user, signIn, signOut, loading }}>
+        <AuthContext.Provider value={{ signed: Boolean(user), user, signIn, signOut, loading, token }}>
             {children}
         </AuthContext.Provider>
     )

@@ -8,7 +8,7 @@ const { brandSecondary, brandSecondary1, brandPrimary, tertiary } = theme.light.
 export const Container = styled(View)`
         flex: 1;
         background: ${tema.light.colors.primary};
-        padding: 25px;
+        padding: 5px;
 `;
 //innerContainer 
 export const InnerContainer = styled(View)`
@@ -21,12 +21,12 @@ export const StyledFormArea = styled.View`
 `
 export const StyledTextInput = styled.TextInput`
     background: ${tema.light.colors.secondary};
-    padding: 15px;
-    padding-left: 55px;
-    padding-right: 55px;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 5px;
     border-radius: 5px;
     font-size:16px;
-    height: 60px;
+    height: 50px;
     margin-vertical:30px;
     margin-bottom:10px;
     color: ${tema.light.colors.primary};
@@ -39,15 +39,15 @@ export const StyledInputLabel = styled.Text`
     margin-bottom:-25px;
 `;
 export const LeftIcon = styled.View`
-    left:15px;
-    top:38px;
+    left:10px;
+    top:33px;
     position:absolute;
     z-index: 1;
 `;
 
 export const RightIcon = styled(TouchableOpacity)`
-    right:15px;
-    top:38px;
+    right:10px;
+    top:33px;
     position:absolute;
     z-index: 1;
 `;

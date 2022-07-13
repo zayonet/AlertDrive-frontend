@@ -12,6 +12,7 @@ import Routes from "./src/routes"
 import { NavigationContainer } from '@react-navigation/native';
 
 import AuthProvider from './src/contexts/auth.provider';
+import FlashMessage from "react-native-flash-message";
 
 //Screens
 //import Login from './screens/account/Login';
@@ -27,6 +28,7 @@ export default function App() {
         <Routes />
         {/* </Theme> */}
       </AuthProvider>
+      <FlashMessage position="top" />
     </NavigationContainer>
   )
 }
