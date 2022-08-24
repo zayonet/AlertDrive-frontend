@@ -8,11 +8,7 @@ const { brandSecondary, brandSecondary1, brandPrimary, tertiary } = theme.light.
 export const Container = styled(View)`
         flex: 1;
         background: ${tema.light.colors.primary};
-<<<<<<< HEAD
-        padding: 5px;
-=======
         padding: 25px;
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
 `;
 //innerContainer 
 export const InnerContainer = styled(View)`
@@ -20,26 +16,18 @@ export const InnerContainer = styled(View)`
     width: 100%;
 `
 export const StyledFormArea = styled.View`
-    margin-top: 20px;
+    margin-top: 100px;
     width: 90%;
+    padding-left:20px;
 `
 export const StyledTextInput = styled.TextInput`
     background: ${tema.light.colors.secondary};
-<<<<<<< HEAD
-    padding: 10px;
-    padding-left: 50px;
-    padding-right: 5px;
-    border-radius: 5px;
-    font-size:16px;
-    height: 50px;
-=======
     padding: 15px;
     padding-left: 55px;
     padding-right: 55px;
     border-radius: 5px;
     font-size:16px;
     height: 60px;
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     margin-vertical:30px;
     margin-bottom:10px;
     color: ${tema.light.colors.primary};
@@ -52,28 +40,12 @@ export const StyledInputLabel = styled.Text`
     margin-bottom:-25px;
 `;
 export const LeftIcon = styled.View`
-<<<<<<< HEAD
-    left:10px;
-    top:33px;
-=======
     left:15px;
     top:38px;
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     position:absolute;
     z-index: 1;
 `;
 
-export const RightIcon = styled(TouchableOpacity)`
-<<<<<<< HEAD
-    right:10px;
-    top:33px;
-=======
-    right:15px;
-    top:38px;
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
-    position:absolute;
-    z-index: 1;
-`;
 
 export const StyledBotton = styled(TouchableOpacity)`
     padding:15px;
@@ -84,6 +56,36 @@ export const StyledBotton = styled(TouchableOpacity)`
     height:60px;
 `;
 
+export const badgeStyleButton = styled(TouchableOpacity)`
+    background-color: ${tema.light.colors.brandPrimary};
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    margin-vertical:5px;
+    margin-right: 5px;
+    width: 48%;
+    color: ${tema.light.colors.primary};
+`;
+export const badgeStyleButtonNot = styled(TouchableOpacity)`
+    background-color: ${tema.light.colors.secondary};
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    margin-vertical:5px;
+    margin-right: 5px;
+    width: 48%;
+    color: ${tema.light.colors.tertiary};
+`;
+export const badgeStyleButtonDel = styled(TouchableOpacity)`
+    background-color: ${tema.light.colors.red};
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    margin-vertical:5px;
+    margin-right: 5px;
+    width: 48%;
+    color: ${tema.light.colors.tertiary};
+`;
 export const BottonText = styled.Text`
     color: ${tema.light.colors.primary};
     font-size: 18px;
@@ -126,4 +128,16 @@ export const TextLink = styled.TouchableOpacity`
 export const TextLinkContent = styled.Text`
     color: ${tema.light.colors.brandSecondary};
     font-size: 15px;
+`;
+// Page title 
+export const PageTitle = styled(Text)`
+        margin-top: 20px;
+        font-size: 18px;
+        text-align:center; 
+        color: ${tema.dark.colors.secondary};
+`;
+
+export const RightIcon = styled(TouchableOpacity)`
+    width:38px;
+    height:38px;
 `;

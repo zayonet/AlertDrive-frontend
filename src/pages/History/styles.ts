@@ -8,11 +8,7 @@ const { brandSecondary, brandSecondary1, brandPrimary, tertiary } = theme.light.
 export const Container = styled(View)`
         flex: 1;
         background: ${tema.light.colors.primary};
-<<<<<<< HEAD
-        padding: 5px;
-=======
         padding: 25px;
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
 `;
 //innerContainer 
 export const InnerContainer = styled(View)`
@@ -20,26 +16,18 @@ export const InnerContainer = styled(View)`
     width: 100%;
 `
 export const StyledFormArea = styled.View`
-    margin-top: 20px;
+    margin-top: 100px;
     width: 90%;
+    padding-left:20px;
 `
 export const StyledTextInput = styled.TextInput`
     background: ${tema.light.colors.secondary};
-<<<<<<< HEAD
-    padding: 10px;
-    padding-left: 50px;
-    padding-right: 5px;
-    border-radius: 5px;
-    font-size:16px;
-    height: 50px;
-=======
     padding: 15px;
     padding-left: 55px;
     padding-right: 55px;
     border-radius: 5px;
     font-size:16px;
     height: 60px;
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     margin-vertical:30px;
     margin-bottom:10px;
     color: ${tema.light.colors.primary};
@@ -52,25 +40,15 @@ export const StyledInputLabel = styled.Text`
     margin-bottom:-25px;
 `;
 export const LeftIcon = styled.View`
-<<<<<<< HEAD
-    left:10px;
-    top:33px;
-=======
     left:15px;
     top:38px;
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     position:absolute;
     z-index: 1;
 `;
 
 export const RightIcon = styled(TouchableOpacity)`
-<<<<<<< HEAD
-    right:10px;
-    top:33px;
-=======
     right:15px;
     top:38px;
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     position:absolute;
     z-index: 1;
 `;

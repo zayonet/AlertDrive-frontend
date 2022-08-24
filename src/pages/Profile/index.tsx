@@ -1,10 +1,17 @@
 import * as React from 'react';
+<<<<<<< HEAD
+import { View, Text, TouchableOpacity, ActivityIndicator, Alert, TextInput, StyleSheet, Title } from "react-native";
+=======
 import { View, Text, TouchableOpacity, ActivityIndicator, Alert, TextInput, Title } from "react-native";
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
 import * as profile from "./styles"
 import { useAuth } from '../../contexts/auth';
 //form
 import { Field, Formik } from 'formik';
+<<<<<<< HEAD
+=======
 import { useFormik } from 'formik';
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
 import { Picker } from '@react-native-community/picker'
 import DateTimePicker from '@react-native-community/datetimepicker';
 //icons
@@ -12,10 +19,24 @@ import { Octicons, Ionicons, Fontisto } from '@expo/vector-icons';
 //Themes
 import theme from "../../styles/index";
 import Select from '../../components/select';
+<<<<<<< HEAD
+import api from '../../service/api';
+import axios, { AxiosError } from 'axios';
+import { ThemeContext } from 'styled-components/native';
+import { Base64 } from 'js-base64';
+import formatDate from '../../utils/formatDate';
+import { TextInputMask } from 'react-native-masked-text'
+const { brandPrimary, secondary, primary, tertiary } = theme.light.colors;
+
+const genders = [
+    { name: "Male", id: 1 },
+    { name: "Female", id: 2 },
+=======
 const { brandSecondary, brandSecondary2, primary, tertiary } = theme.light.colors;
 const genders = [
     { name: "Male", id: 1 },
     { name: "Femele", id: 2 },
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     { name: "Other", id: 3 }
 ];
 interface IUser {
@@ -23,28 +44,133 @@ interface IUser {
     email: string;
     password: string;
     confirmPassword: string;
+<<<<<<< HEAD
+    birthday: Date;
+=======
     birthday: string;
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     country_id: string;
     nif: number;
     gender: string;
     phone: number;
 }
+<<<<<<< HEAD
+interface ICountries {
+    id: string;
+    country_name: string;
+    countrycode: string;
+    phoneCode: string;
+    created_at: string;
+}
+
+interface IPassword {
+    password: string;
+}
+=======
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
 
 const Profile: React.FC = ({ navigation }: any) => {
     const [hidePassword, setHidePassword] = React.useState(true);
     const [show, setShow] = React.useState(false);
     const [date, setDate] = React.useState(new Date(2000, 0, 1));
     const { signOut, user } = useAuth();
+<<<<<<< HEAD
+    const [countries, setCountries] = React.useState<ICountries[]>([]);
+=======
 
 
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     //Actual date of birth to be sent
     const [userDate, setUserDate] = React.useState(new Date(2000, 0, 1));
     //Feedback on login 
     const [message, setMessage] = React.useState();
     const [messageType, setMessageType] = React.useState();
+<<<<<<< HEAD
+    const [decodePassword, setDecodePassword] = React.useState<IPassword>();
+    const decrypt_password = () => {
+
+        const temp2 = Base64.decode(user?.password!);
+        console.log(temp2)
+        setDecodePassword(temp2);
+    }
+
+
+    const getCountryAsync = async () => {
+        try {
+            const response = await api.get('/country');
+            /*  alert(JSON.stringify(response.data)); */
+
+            const country = response.data.map((item: {
+                id: string;
+                country_name: string;
+                countrycode: string;
+                phoneCode: string;
+                created_at: string;
+            }) => {
+                return {
+                    id: item.id,
+                    country_name: item.country_name,
+                    countrycode: item.countrycode,
+                    phoneCode: item.phoneCode,
+                    created_at: formatDate(item.created_at)
+                };
+            }
+            );
+            setCountries(country);
+        } catch (error) {
+            // handle error
+            alert(error);
+        }
+    };
+    const getCountry = () => {
+        api.get('/country')
+            .then(function (response) {
+                const result = response.data;
+                alert(JSON.stringify(response.data));
+            })
+            .catch(err => {
+                if (err.response) {
+                    alert(JSON.stringify(err.response))
+                    // client received an error response (5xx, 4xx)
+                } else if (err.request) {
+                    alert(JSON.stringify(err.request))
+                    // client never received a response, or request never left 
+                } else {
+                    alert(JSON.stringify(err.message))
+                    // anything else 
+                }
+            })
+            .finally(function () {
+                // always executed
+                alert('Finally called');
+            });
+    };
+    React.useEffect(() => {
+        getCountryAsync();
+    }, [getCountryAsync]);
+    React.useMemo(() => {
+        decrypt_password
+    }, [decrypt_password])
+    async function updateUser(credentials: IUser, setSubmitting: any) {
+        handleMessage(null);
+        console.log(credentials);
+        const response = await api.put('/user/' + user?.id, credentials)
+            .then((response) => {
+                const result = response.data;
+                setSubmitting(false);
+            })
+            .catch(error => {
+                console.log(error)
+                setSubmitting(false);
+                handleMessage("An error ocurred. Check your network and try again");
+            })
+    }
+
+=======
     //const [isSubmitting, setSubmitting] = useState();
 
 
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     const onChange = (event: any, selectedDate: Date | undefined) => {
         const currentDate = selectedDate || date;
         setShow(false);
@@ -55,6 +181,13 @@ const Profile: React.FC = ({ navigation }: any) => {
     const showDataPicker = () => {
         setShow(true);
     }
+<<<<<<< HEAD
+    const handleMessage = (message: any, type: any = 'FAILED') => {
+        setMessage(message);
+        setMessageType(type);
+    }
+=======
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             {show && (
@@ -73,7 +206,11 @@ const Profile: React.FC = ({ navigation }: any) => {
                         nif: user?.nif,
                         email: user?.email,
                         password: user?.password,
+<<<<<<< HEAD
+                        birthday: formatDate(user?.birthday!),
+=======
                         birthday: user?.birthday,
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
                         gender: user?.gender,
                         phone: user?.phone,
                         photo: user?.photo,
@@ -86,7 +223,11 @@ const Profile: React.FC = ({ navigation }: any) => {
                     }
                 }
                 onSubmit={(values, { setSubmitting }) => {
+<<<<<<< HEAD
+                    values = { ...values/* , birthday: userDate */ }
+=======
                     values = { ...values, birthday: userDate }
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
                     if (
                         values.email == '' ||
                         values.password == '' ||
@@ -94,10 +235,17 @@ const Profile: React.FC = ({ navigation }: any) => {
                         values.nif == 0 ||
                         values.gender == '' ||
                         values.phone == 0) {
+<<<<<<< HEAD
+                        handleMessage('Please, fill all the fields');
+                        setSubmitting(false);
+                    } else {
+                        updateUser(values, setSubmitting)
+=======
                         //handleMessage('Please, fill all the fields');
                         setSubmitting(false);
                     } else {
                         //handleSignup(values, setSubmitting)
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
                     }
                     //console.log(values); navigation.navigate('home')
                 }
@@ -115,6 +263,196 @@ const Profile: React.FC = ({ navigation }: any) => {
                         value={values.name} isPassword={undefined}
                         hidePassword={undefined}
                         setHidePassword={undefined} />
+<<<<<<< HEAD
+
+                    <View style={styles.container}>
+                        <View style={styles.row}>
+                            <View style={[styles.box, styles.marginR]}>
+                                <MyTextInput
+                                    label="Email Adress"
+                                    icon="mail"
+                                    placeholder="jose@mail.com"
+                                    placeholderTextColor={tertiary}
+                                    onChangeText={handleChange('email')}
+                                    onBlur={handleBlur('email')}
+                                    value={values.email}
+                                    keyboardType="email-address" isPassword={undefined}
+                                    hidePassword={undefined}
+                                    setHidePassword={undefined}
+                                />
+                            </View>
+                            <View style={styles.box}>
+                                <MyTextInput
+                                    label="Password"
+                                    icon="lock"
+                                    placeholder="* * * * * *"
+                                    placeholderTextColor={tertiary}
+                                    onChangeText={handleChange('password')}
+                                    onBlur={handleBlur('password')}
+                                    value={values.password}
+                                    secureTextEntry={hidePassword}
+                                    hidePassword={hidePassword}
+                                    isPassword={true}
+                                    setHidePassword={setHidePassword}
+                                />
+                            </View>
+                        </View>
+                    </View>
+                    <Text>{decodePassword}</Text>
+                    <View style={styles.container}>
+                        <View style={styles.row}>
+                            <View style={[styles.box, styles.marginR]}>
+                                <MyTextInput
+                                    label="Date of Birth"
+                                    icon="calendar"
+                                    placeholder="20/10/1985"
+                                    placeholderTextColor={tertiary}
+                                    onChangeText={handleChange('birthday')}
+                                    onBlur={handleBlur('birthday')}
+                                    value={values.birthday}
+                                /* value={userDate ? userDate.toDateString() : ''}
+                                isDate={true}
+                                editable={false}
+                                showDatePicker={showDataPicker} */
+                                />
+                            </View>
+                            <View style={styles.box}>
+                                <Text style={styles.pickerLabelStyle}>Gender</Text>
+                                <Picker
+                                    enabled={true}
+                                    mode="dropdown"
+                                    placeholder="Select Gender"
+                                    placeholderTextColor={tertiary}
+                                    onValueChange={handleChange('gender')}
+                                    onBlur={handleBlur('gender')}
+                                    selectedValue={values.gender}
+                                    pickerStyleType={styles.pickerSelectStyle}
+                                    style={styles.pickerSelectStyle}
+                                >
+                                    {genders.map((item) => {
+                                        return (
+                                            <Picker.Item
+                                                label={item.name.toString()}
+                                                value={item.name.toString()}
+                                                key={item.id.toString()}
+                                            />
+                                        )
+                                    })}
+                                </Picker>
+                            </View>
+                        </View>
+                    </View>
+
+                    <View style={styles.container}>
+                        <View style={styles.row}>
+                            <View style={[styles.box, styles.marginR]}>
+                                <MyTextInput
+                                    label="phone"
+                                    icon="device-mobile"
+                                    placeholder="Phone N.º"
+                                    placeholderTextColor={tertiary}
+                                    onChangeText={handleChange('phone')}
+                                    onBlur={handleBlur('phone')}
+                                    value={values.phone}
+                                />
+                            </View>
+                            <View style={styles.box}>
+                                {/* <MyTextInput
+                                    label="phone"
+                                    icon="device-mobile"
+                                    placeholder="Phone N.º"
+                                    placeholderTextColor={tertiary}
+                                    onChangeText={handleChange('phone')}
+                                    onBlur={handleBlur('phone')}
+                                    value={values.phone}
+                                /> */}
+                                <MyTextInput
+                                    label="Street"
+                                    icon="location"
+                                    placeholder="Your street"
+                                    placeholderTextColor={tertiary}
+                                    onChangeText={handleChange('street')}
+                                    onBlur={handleBlur('street')}
+                                    value={values.street}
+                                />
+                            </View>
+                        </View>
+                    </View>
+                    <View style={styles.container}>
+                        <View style={styles.row}>
+                            <View style={[styles.box, styles.marginR]}>
+                                <MyTextInput
+                                    label="House number"
+                                    icon="home"
+                                    placeholder="Your house number"
+                                    placeholderTextColor={tertiary}
+                                    onChangeText={handleChange('house_number')}
+                                    onBlur={handleBlur('house_number')}
+                                    value={values.house_number}
+                                />
+                            </View>
+                            <View style={styles.box}>
+                                <MyTextInput
+                                    label="Post Code"
+                                    icon="inbox"
+                                    placeholder="Your post code"
+                                    placeholderTextColor={tertiary}
+                                    onChangeText={handleChange('post_code')}
+                                    onBlur={handleBlur('post_code')}
+                                    value={values.post_code}
+                                />
+                            </View>
+                        </View>
+                    </View>
+                    <View style={styles.container}>
+                        <View style={styles.row}>
+                            <View style={[styles.box, styles.marginR]}>
+                                <MyTextInput
+                                    label="City"
+                                    icon="milestone"
+                                    placeholder="Your city"
+                                    placeholderTextColor={tertiary}
+                                    onChangeText={handleChange('city')}
+                                    onBlur={handleBlur('city')}
+                                    value={values.city}
+                                />
+                            </View>
+                            <View style={styles.box}>
+                                {/* <MyTextInput
+                                    label="Country"
+                                    icon="globe"
+                                    placeholder="Your country"
+                                    placeholderTextColor={tertiary}
+                                    onChangeText={handleChange('country_id')}
+                                    onBlur={handleBlur('country_id')}
+                                    value={values.country_id}
+                                /> */}
+                                <Text style={styles.pickerLabelStyle}>Country</Text>
+                                <Picker
+                                    enabled={true}
+                                    mode="dropdown"
+                                    placeholder="Select Country"
+                                    placeholderTextColor={tertiary}
+                                    onValueChange={handleChange('country_id')}
+                                    onBlur={handleBlur('country_id')}
+                                    selectedValue={values.country_id}
+                                    pickerStyleType={styles.pickerSelectStyle}
+                                    style={styles.pickerSelectStyle}
+                                >
+                                    {countries.map((item) => {
+                                        return (
+                                            <Picker.Item
+                                                label={item.country_name.toString()}
+                                                value={item.id.toString()}
+                                                key={item.id.toString()}
+                                            />
+                                        )
+                                    })}
+                                </Picker>
+                            </View>
+                        </View>
+                    </View>
+=======
                     <MyTextInput
                         label="Email Adress"
                         icon="mail"
@@ -173,6 +511,7 @@ const Profile: React.FC = ({ navigation }: any) => {
                             )
                         })}
                     </Picker>
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
                     <profile.MessageBox type={messageType}>{message}</profile.MessageBox>
                     {!isSubmitting &&
                         <profile.StyledBotton onPress={() => handleSubmit()}>
@@ -188,7 +527,11 @@ const Profile: React.FC = ({ navigation }: any) => {
                 </profile.StyledFormArea>
                 )}
             </Formik>
+<<<<<<< HEAD
+        </View >
+=======
         </View>
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     );
 }
 
@@ -209,4 +552,48 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, i
         )}
     </View>);
 };
+<<<<<<< HEAD
+const styles = StyleSheet.create({
+    /*  containerInput: {
+         display: 'flex',
+         justifyContent: 'center'
+     }, */
+    container: {
+        marginTop: 0,
+    },
+    row: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+    },
+    box: {
+        width: 170,
+    },
+    marginR: {
+        marginRight: 10
+    },
+    zero: {
+        padding: 0,
+        margin: 0,
+    },
+    pickerSelectStyle: {
+        backgroundColor: secondary,
+        Padding: 10,
+        paddingLeft: 50,
+        paddingRight: 5,
+        borderRadius: 5,
+        fontSize: 16,
+        height: 49,
+        marginVertical: 30,
+        marginBottom: 10,
+        color: primary
+    },
+    pickerLabelStyle: {
+        color: brandPrimary,
+        fontSize: 13,
+        textAlign: 'left',
+        marginBottom: -25
+    }
+})
+=======
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
 export default Profile 

@@ -32,6 +32,10 @@ interface AutContextData {
     signIn(credentials: IUserCredentiasl): Promise<void>;
     signOut(): void;
     loading: boolean;
+<<<<<<< HEAD
+    token: string | null;
+=======
+>>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
 }
 const AuthContext = createContext<AutContextData>({} as AutContextData);
 
