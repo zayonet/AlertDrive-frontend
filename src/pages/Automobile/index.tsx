@@ -59,7 +59,6 @@ const Automobile: React.FC = ({ navigation }: any) => {
         });
     }, [navigation]);
     async function getAutomobileAsync() {
-        //const response = await api.get(`/automobile/${user?.id`, { headers: { Authorization } })
         const response = await api.get(`/automobile/user/${user?.id}`, { headers: { Authorization } })
 
         const automobileUser = (response.data as IAutomobile[]).map((item: {
@@ -204,12 +203,6 @@ const styles = StyleSheet.create({
         color: brandSecondary,
         marginBottom: 10
     },
-    /* content: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center'
-    }, */
     row: {
         flexDirection: "row",
         flexWrap: "wrap",
