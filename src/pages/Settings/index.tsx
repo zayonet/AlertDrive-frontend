@@ -83,7 +83,7 @@ const SettingsScreen: React.FC = ({ navigation }: any) => {
                         <Ionicons name='sunny' size={30} color={brandSecondary2} />
                         <Text>Weather</Text>
                     </settings.Card>
-                    <settings.Card onPress={() => navigation.navigate('UserBody')}>
+                    <settings.Card onPress={() => navigation.navigate('Sensors')}>
                         <Ionicons name='git-compare' size={30} color={brandSecondary2} />
                         <Text>Sensors</Text>
                     </settings.Card>

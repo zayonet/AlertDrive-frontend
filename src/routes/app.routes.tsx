@@ -7,6 +7,7 @@ import Settings from '../pages/Settings';
 import Profile from '../pages/Profile';
 import Body from '../pages/Body';
 import Job from '../pages/Job';
+import Sensors from '../pages/Sensors';
 
 import Theme from '../styles/index'
 import { Button, Image } from 'react-native';
@@ -45,6 +46,7 @@ const AppRoutes: React.FC = () => {
             <AppStack.Screen options={{ headerTintColor: primary }} name='Profile' component={Profile} />
             <AppStack.Screen options={{ headerTintColor: primary }} name='Body' component={Body} />
             <AppStack.Screen options={{ headerTintColor: primary }} name='Job' component={Job} />
+            <AppStack.Screen options={{ headerTintColor: primary }} name='Sensors' component={Sensors} />
         </AppStack.Navigator>
     )
 }
