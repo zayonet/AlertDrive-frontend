@@ -41,6 +41,11 @@ const Sensors: React.FC = ({ navigation }: any) => {
     y: 0,
     z: 0
   });
+  const [data1, setData1] = useState({
+    x: 0,
+    y: 0,
+    z: 0
+  });
   const [subscription, setSubscription] = useState(null);
 
   const _subscribe = () => {
@@ -62,6 +67,24 @@ const Sensors: React.FC = ({ navigation }: any) => {
   }, []);
   const { x, y, z} = data;
 
+
+  const g_subscribe = () => {
+    setSubscription(
+      Gyroscope.addListener(gyroscopeData => {
+        setData1(gyroscopeData);
+      })
+    );
+  };
+  const g_unsubscribe = () => {
+    subscription && subscription.remove();
+    setSubscription(null);
+  };
+
+  useEffect(() => {
+    g_subscribe();
+    return () => g_unsubscribe();
+  }, []);
+
   function round(n) {
     if (!n) {
       return 0;
@@ -69,9 +92,6 @@ const Sensors: React.FC = ({ navigation }: any) => {
     return Math.floor(n * 100) / 100;
   }
 
-  function teste() {
-    values.accelerometerX =x;
-  }
 
   const [hidePassword, setHidePassword] = React.useState(true);
   const [show, setShow] = React.useState(false);
@@ -123,6 +143,9 @@ const Sensors: React.FC = ({ navigation }: any) => {
           values.accelerometerX=x.toString();
           values.accelerometerY=y.toString();
           values.accelerometerZ=z.toString();
+          values.gyroscopeX=data1.x.toString();
+          values.gyroscopeY=data1.y.toString();
+          values.gyroscopeZ=data1.z.toString();
           handleSensor(values, setSubmitting)
 
           //console.log(values); navigation.navigate('home')
@@ -154,24 +177,29 @@ const Sensors: React.FC = ({ navigation }: any) => {
             value={values.accelerometerZ}
           />
           <MyTextInput
-            label="Introduce gyroscopeX"
+            label="Value of gyroscope X"
+            placeholder={round(data1.x).toString()}
             onChangeText={handleChange('gyroscopeX')}
             onBlur={handleBlur('gyroscopeX')}
+            editable={false} selectTextOnFocus={false}
             value={values.gyroscopeY}
           />
           <MyTextInput
-            label="Introduce gyroscopeY"
+            label="Value of gyroscope Y"
+            placeholder={round(data1.y).toString()}
             onChangeText={handleChange('gyroscopeY')}
             onBlur={handleBlur('gyroscopeY')}
+            editable={false} selectTextOnFocus={false}
             value={values.gyroscopeY}
           />
           <MyTextInput
-            label="Introduce gyroscopeZ"
+            label="Value of gyroscope Z"
+            placeholder={round(data1.z).toString()}
             onChangeText={handleChange('gyroscopeZ')}
             onBlur={handleBlur('gyroscopeZ')}
+            editable={false} selectTextOnFocus={false}
             value={values.gyroscopeZ}
           />
-
 
           <Sensores.MessageBox type={messageType}>{message}</Sensores.MessageBox>
           {!isSubmitting &&
