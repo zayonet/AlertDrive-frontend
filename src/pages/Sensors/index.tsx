@@ -68,6 +68,11 @@ const Sensors: React.FC = ({ navigation }: any) => {
     }
     return Math.floor(n * 100) / 100;
   }
+
+  function teste() {
+    values.accelerometerX =x;
+  }
+
   const [hidePassword, setHidePassword] = React.useState(true);
   const [show, setShow] = React.useState(false);
 
@@ -105,9 +110,9 @@ const Sensors: React.FC = ({ navigation }: any) => {
       <Formik
         initialValues={{
           user_id: user?.id,
-          accelerometerX: round(data?.x).toString(),
-          accelerometerY: round(data?.y).toString(),
-          accelerometerZ: round(data?.z).toString(),
+          accelerometerX: "",
+          accelerometerY: "",
+          accelerometerZ: "",
           gyroscopeX: "",
           gyroscopeY: "",
           gyroscopeZ: ""
@@ -115,7 +120,9 @@ const Sensors: React.FC = ({ navigation }: any) => {
 
         onSubmit={(values, { setSubmitting }) => {
           values = { ...values }
-
+          values.accelerometerX=x.toString();
+          values.accelerometerY=y.toString();
+          values.accelerometerZ=z.toString();
           handleSensor(values, setSubmitting)
 
           //console.log(values); navigation.navigate('home')
@@ -126,18 +133,21 @@ const Sensors: React.FC = ({ navigation }: any) => {
         (<Sensores.StyledFormArea>
           <MyTextInput
             label="Value of accelerometer X"
+            placeholder={round(x).toString()}
             onChangeText={handleChange('accelerometerX')}
             onBlur={handleBlur('accelerometerX')}
             editable={false} selectTextOnFocus={false}
             value={values.accelerometerX} />
           <MyTextInput
             label="Value of accelerometer Y"
+            placeholder={round(y).toString()}
             onChangeText={handleChange('accelerometerY')}
             onBlur={handleBlur('accelerometerY')}
             editable={false} selectTextOnFocus={false}
             value={values.accelerometerY} />
           <MyTextInput
             label="Value of accelerometer Z"
+            placeholder={round(z).toString()}
             onChangeText={handleChange('accelerometerZ')}
             onBlur={handleBlur('accelerometerZ')}
             editable={false} selectTextOnFocus={false}
