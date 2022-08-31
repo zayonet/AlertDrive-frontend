@@ -45,7 +45,7 @@ interface ICar {
     make: string;
     model: string;
 }
-import cars_db from '../../database/dbCars';
+//import cars_db from '/../database/dbCars';
 import countries from '../../database/countries';
 import engine_capacity from '../../database/engine_capacity';
 import fuels from '../../database/fuels';

@@ -11,13 +11,7 @@ const { primary, secondary, brandPrimary, tertiary } = Theme.light.colors;
 
 
 const Routes: React.FC = () => {
-    const { signed, loading } = useAuth();
-
-    if (loading) {
-        return (<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
-            <ActivityIndicator size="large" color={brandPrimary} />
-        </View>)
-    }
-    return signed ? <AppRoutes /> : <AuthRoutes />;
+    
+    return  <AppRoutes />;
 }
 export default Routes;
