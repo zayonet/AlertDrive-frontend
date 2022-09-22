@@ -51,7 +51,7 @@ const yesOrNo = [
     { name: "No", id: 3 }
 ];
 
-import cars_db from '../../database/dbCars';
+//import cars_db from '../../database/dbCars';
 const CreateVehicle: React.FC = ({ navigation }: any) => {
     const { signOut, user, token } = useAuth();
     //Feedback on login 

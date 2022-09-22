@@ -6,6 +6,9 @@ import { useAuth } from '../../contexts/auth';
 import { Octicons, Ionicons, Fontisto } from '@expo/vector-icons';
 //Themes
 import theme from "../../styles/index";
+
+global.SampleVar = false;
+
 const { brandSecondary, brandSecondary2, brandPrimary, tertiary } = theme.light.colors;
 
 const SettingsScreen: React.FC = ({ navigation }: any) => {
@@ -43,7 +46,6 @@ const SettingsScreen: React.FC = ({ navigation }: any) => {
                         <Ionicons name='square' size={30} color={brandSecondary} />
                         <Text>My Job</Text>
                     </settings.Card>
-<<<<<<< HEAD
                     <settings.Card onPress={() => navigation.navigate('Desease')}>
                         <Ionicons name='medkit' size={30} color={brandSecondary} />
                         <Text>Desease</Text>
@@ -53,31 +55,14 @@ const SettingsScreen: React.FC = ({ navigation }: any) => {
                         <Text>History</Text>
                     </settings.Card>
                     <settings.Card onPress={() => navigation.navigate('Activity')}>
-=======
-                    <settings.Card onPress={() => navigation.navigate('UserBody')}>
-                        <Ionicons name='medkit' size={30} color={brandSecondary} />
-                        <Text>Desease</Text>
-                    </settings.Card>
-                    <settings.Card onPress={() => navigation.navigate('UserBody')}>
-                        <Ionicons name='timer' size={30} color={brandSecondary} />
-                        <Text>History</Text>
-                    </settings.Card>
-                    <settings.Card onPress={() => navigation.navigate('UserBody')}>
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
                         <Ionicons name='apps' size={30} color={brandSecondary} />
                         <Text>Activity</Text>
                     </settings.Card>
                 </settings.CardContainer>
 
-<<<<<<< HEAD
                 <settings.PageTitle>My Automobile</settings.PageTitle>
                 <settings.CardContainer>
                     <settings.Card onPress={() => navigation.navigate('Automobile')}>
-=======
-                <settings.PageTitle>My Vehicle</settings.PageTitle>
-                <settings.CardContainer>
-                    <settings.Card onPress={() => navigation.navigate('Profile')}>
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
                         <Ionicons name='car' size={30} color={brandPrimary} />
                         <Text>My Car</Text>
                     </settings.Card >
@@ -95,13 +80,13 @@ const SettingsScreen: React.FC = ({ navigation }: any) => {
                     </settings.Card>
                 </settings.CardContainer>
 
-                <settings.PageTitle>Weather</settings.PageTitle>
+                <settings.PageTitle>Sensors</settings.PageTitle>
                 <settings.CardContainer>
-                    <settings.Card onPress={() => navigation.navigate('UserBody')}>
+                    <settings.Card onPress={() => navigation.navigate('Weather')}>
                         <Ionicons name='sunny' size={30} color={brandSecondary2} />
                         <Text>Weather</Text>
                     </settings.Card>
-                    <settings.Card onPress={() => navigation.navigate('UserBody')}>
+                    <settings.Card onPress={() => navigation.navigate('indexSensor')}>
                         <Ionicons name='git-compare' size={30} color={brandSecondary2} />
                         <Text>Sensors</Text>
                     </settings.Card>

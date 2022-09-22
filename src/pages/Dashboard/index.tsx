@@ -33,10 +33,7 @@ const Dashboard: React.FC = ({ navigation }: any) => {
                 <View>
                     <dashboard.RightIcon onPress={() => navigation.navigate('Settings')}>
                         <Ionicons name='settings' size={30} color={brandPrimary} />
-<<<<<<< HEAD
                         <Text>Settings</Text>
-=======
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
                     </dashboard.RightIcon>
                 </View>
             ),
@@ -97,10 +94,7 @@ const Dashboard: React.FC = ({ navigation }: any) => {
                     <dashboard.PageTitle>You are at home page ! Buddy</dashboard.PageTitle>
                     <dashboard.SubTitle>{user?.name}</dashboard.SubTitle>
                     <dashboard.SubTitle>{user?.email}</dashboard.SubTitle>
-<<<<<<< HEAD
-                    <Button title="Start" onPress={() => navigation.navigate('CreateSensor')} />
-=======
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
+                    <Button title="Start" onPress={() => navigation.navigate('Sensor')} />
                     {/* <View style={styles.container}>
                         <Text>My Dashboard</Text>
                         <Text>{user?.name}</Text>

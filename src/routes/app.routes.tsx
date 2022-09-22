@@ -7,7 +7,6 @@ import Settings from '../pages/Settings';
 import Profile from '../pages/Profile';
 import Body from '../pages/Body';
 import Job from '../pages/Job';
-<<<<<<< HEAD
 import History from '../pages/History';
 import Desease from '../pages/Desease';
 import Activity from '../pages/Activity';
@@ -31,13 +30,9 @@ import CreateVehicle from '../pages/Vehicle/create';
 import CreateAutomobile from '../pages/Automobile/create';
 import DeleteAutomobile from '../pages/Automobile/delete';
 import UpdateAutomobile from '../pages/Automobile/update';
-import CreateSensor from '../pages/Sensors/create';
-//import UpdateUserJob from '../pages/Job/update';
-=======
-
-import Theme from '../styles/index'
-import { Button, Image } from 'react-native';
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
+import indexSensor from '../pages/Sensors/index';
+import Sensor from '../pages/Sensors/create';
+import Weather from '../pages/Weather/create';
 
 const AppStack = createNativeStackNavigator();
 
@@ -72,7 +67,6 @@ const AppRoutes: React.FC = () => {
             <AppStack.Screen options={{ headerTintColor: primary }} name='Settings' component={Settings} />
             <AppStack.Screen options={{ headerTintColor: primary }} name='Profile' component={Profile} />
             <AppStack.Screen options={{ headerTintColor: primary }} name='Body' component={Body} />
-<<<<<<< HEAD
             <AppStack.Screen options={{ headerTintColor: primary }} name='CreateUserBody' component={CreateBodyUser} />
             <AppStack.Screen options={{ headerTintColor: primary }} name='UpdateUserBody' component={UpdateUserBody} />
             <AppStack.Screen options={{ headerTintColor: primary }} name='Job' component={Job} />
@@ -94,11 +88,9 @@ const AppRoutes: React.FC = () => {
             <AppStack.Screen options={{ headerTintColor: primary }} name='CreateAutomobile' component={CreateAutomobile} />
             <AppStack.Screen options={{ headerTintColor: primary }} name='DeleteAutomobile' component={DeleteAutomobile} />
             <AppStack.Screen options={{ headerTintColor: primary }} name='UpdateAutomobile' component={UpdateAutomobile} />
-            <AppStack.Screen options={{ headerTintColor: primary }} name='CreateSensor' component={CreateSensor} />
-
-=======
-            <AppStack.Screen options={{ headerTintColor: primary }} name='Job' component={Job} />
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
+            <AppStack.Screen options={{ headerTintColor: primary }} name='Weather' component={Weather} />
+            <AppStack.Screen options={{ headerTintColor: primary }} name='Sensor' component={Sensor} />
+            <AppStack.Screen options={{ headerTintColor: primary }} name='indexSensor' component={indexSensor} />
         </AppStack.Navigator>
     )
 }

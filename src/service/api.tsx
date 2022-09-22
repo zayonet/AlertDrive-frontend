@@ -1,11 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-<<<<<<< HEAD
     baseURL: "http://10.0.2.2:3333/api/v1/",
-=======
-    baseURL: "http://10.0.2.2:3333/api/v1",
->>>>>>> a8e08eb49879e6efcbe0796cf0e2bf99a825a423
     timeout: 2000
 })
 
